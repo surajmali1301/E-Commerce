@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Mini_Project_DotNet.Models.Product>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        .product-card {
+            margin-bottom: 20px;
+        }
+
+        .product-image {
+            height: 200px;
+            width: 200px;
+            object-fit: cover;
+        }
+
+        .product-price {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">User Product Page</h1>
+        <div class="row">
+            @foreach (var product in Model)
+            {
+                <div class="col-md-3 product-card mb-4">
+                    <div class="card">
+                        <img asp-controller="Product" asp-action="CategoryList" class="card-img-top product-image" src="@Url.Content(product.Image)" alt="@product.Name">
+                        <div class="card-body">
+                            <h5 class="card-title">@product.Name</h5>
+                            <p class="card-text product-price">$@product.Price</p>
+                        </div>
+                    </div>
+                            <a href="@Url.Action("ProductDetails", "Product", new { id = product.ProductId })">View Details</a>
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>

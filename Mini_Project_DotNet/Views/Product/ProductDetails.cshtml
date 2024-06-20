@@ -1,0 +1,30 @@
+﻿@model Mini_Project_DotNet.Models.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="@Url.Content(Model.Image)" alt="@Model.Name" class="img-fluid rounded">
+        </div>
+        <div class="col-md-6">
+            <h2 class="mb-3">@Model.Name</h2>
+            <p class="mb-3">@Model.Description</p>
+            <p class="h4 text-success mb-3">Price: ₹@Model.Price</p>
+            <div class="d-flex">
+                <form asp-controller="Cart" asp-action="AddToCart" method="post" class="mr-2">
+                    <input type="hidden" name="productId" value="@Model.ProductId" />
+                    <input type="hidden" name="quantity" value="1" />
+                    <button type="submit" class="btn btn-primary btn-lg">Add to Cart</button>
+                </form>
+                <form asp-action="BuyNow" method="post">
+                    <input type="hidden" name="productId" value="@Model.ProductId" />
+                    <input type="hidden" name="quantity" value="1" />
+                    <button type="submit" class="btn btn-success btn-lg">Buy Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
