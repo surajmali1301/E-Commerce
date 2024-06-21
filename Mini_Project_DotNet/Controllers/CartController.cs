@@ -82,8 +82,8 @@ namespace Mini_Project_DotNet.Controllers
             try
             {
                
-                 var model = cartService.UpdateCart(cart);
-                if (model != null)
+                 int result = cartService.UpdateCart(cart);
+                if (result>=1)
                 {
                     return RedirectToAction(nameof(CartIndex));
                 }

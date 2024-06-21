@@ -92,7 +92,7 @@ namespace Mini_Project_DotNet.Controllers
         {
             new Claim(ClaimTypes.Name, loggedInUser.Name),
             new Claim(ClaimTypes.Email, loggedInUser.Email),
-            new Claim("UserId", loggedInUser.Id.ToString()),
+            new Claim("UserId", loggedInUser.UserId.ToString()),
             new Claim(ClaimTypes.Role, loggedInUser.RoleId == 1 ? "Admin" : "Customer")
         };
 

@@ -5,7 +5,7 @@
 }
 
 <h2>@ViewData["Title"]</h2>
-
+<a asp-action="Product" asp-controller="UserProductPage" class="btn btn-primary">Back</a>
 @if (!Model.Any())
 {
         <p>Your cart is empty.</p>
@@ -43,6 +43,6 @@ else
             </tbody>
         </table>
         <div>
-            <a asp-controller="Checkout" asp-action="Index" class="btn btn-success">Proceed to Checkout</a>
+            <a asp-controller="Orders" asp-action="PlaceOrder" class="btn btn-success">Proceed to Checkout</a>
         </div>
 }

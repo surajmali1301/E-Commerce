@@ -17,5 +17,7 @@ namespace Mini_Project_DotNet.Data
         public DbSet<Cart> Cart { get; set; }
 
         public DbSet<Roles> Roles { get; set; }
+
+        public DbSet<Orders> Orders { get; set; }
     }
 }

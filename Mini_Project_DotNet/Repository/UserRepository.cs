@@ -51,7 +51,7 @@ namespace Mini_Project_DotNet.Repository
 
         public int DeleteUser(int id)
         {
-            var model = db.Users.SingleOrDefault(u=>u.Id==id);
+            var model = db.Users.SingleOrDefault(u=>u.UserId==id);
             if(model != null)
             {
                 db.Users.Remove(model);
@@ -63,7 +63,7 @@ namespace Mini_Project_DotNet.Repository
 
         public Users GetUserById(int id)
         {
-            return db.Users.Where(x=>x.Id==id).SingleOrDefault();
+            return db.Users.Where(x=>x.UserId == id).SingleOrDefault();
         }
     }
 }
